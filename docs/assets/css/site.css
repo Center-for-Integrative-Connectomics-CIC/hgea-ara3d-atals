@@ -1,0 +1,37 @@
+/* Shared design tokens (same family as the Subiculum Projectome site). */
+:root{
+  --paper:#ffffff; --tint:#fbfbfa; --panel:#f5f6f5; --line:#e2e5e3; --ink:#14180f; --muted:#5c635a; --muted-2:#878d84;
+  --accent:#147d70; --accent-deep:#0e5b51; --accent-soft:#59b3a5; --wash:#e8f4f1;
+  --ish:#d2662b; --mer:#2a86c9;
+  --serif:'Instrument Serif',Georgia,serif; --sans:'DM Sans',-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --stage:radial-gradient(ellipse at 50% 34%,#1b2733 0%,#0c1116 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+.mono{font-family:var(--mono)}
+.chip{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10.5px;padding:2px 8px;border-radius:11px;border:1px solid var(--line);color:var(--muted);background:#fff;white-space:nowrap}
+.chip.on{border-color:transparent;color:#fff}
+.chip.ish.on{background:var(--ish)} .chip.mer.on{background:var(--mer)}
+.chip.off{opacity:.45;text-decoration:line-through}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:7px;font-size:13.5px;font-weight:500;border:1px solid var(--line);background:#fff;color:var(--accent);cursor:pointer;transition:all .15s}
+.btn:hover{border-color:var(--accent-soft);transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent-deep)}
+.search{width:100%;padding:8px 11px;border:1px solid var(--line);border-radius:7px;font-family:var(--sans);font-size:13px;background:#fff}
+.search:focus{outline:none;border-color:var(--accent)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;background:#fff}
+.seg button{font-family:var(--mono);font-size:11px;padding:6px 9px;background:#fff;border:none;cursor:pointer;color:var(--muted)}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button.active{background:var(--accent);color:#fff}
+.seg button:disabled{opacity:.35;cursor:not-allowed}
+select.sel{font-family:var(--mono);font-size:11.5px;padding:6px 8px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink)}
+.mini{font-family:var(--mono);font-size:11px;color:var(--muted-2)}
+.lbl{font-family:var(--mono);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);margin:0 0 7px}
+table.t{width:100%;border-collapse:collapse;font-size:12px}
+table.t th,table.t td{text-align:left;padding:5px 7px;border-bottom:1px solid var(--line);vertical-align:top}
+table.t th{font-family:var(--mono);font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--accent);background:var(--tint);position:sticky;top:0}
+table.t td.n{text-align:right;font-family:var(--mono);font-size:11px}
+.bar{height:9px;border-radius:2px;display:inline-block;vertical-align:middle}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:middle;margin-right:5px;border:1px solid rgba(0,0,0,.12)}
