@@ -1,0 +1,433 @@
+{
+ "edition": "ccfv3bbp",
+ "title": "HGEA \u00b7 CCFv3BBP",
+ "subtitle": "Reference v1 carried from the 3D ARA into CCFv3BBP (Blue Brain), 25 \u00b5m",
+ "method": "The 3D ARA reference (33 plates on their own Nissl slices, Nissl-guided fill) is carried into CCFv3BBP by registering the 3D ARA Nissl onto the same brain's Nissl as realigned into CCFv3BBP by Blue Brain (affine + SyN). Each domain is warped as a signed-distance map. Plate positions here are each plate's median AP in CCFv3BBP: after the transform a plate is a gently curved sheet, not one slice.",
+ "grid": {
+  "shape": [
+   566,
+   320,
+   456
+  ],
+  "axes": [
+   "AP",
+   "DV",
+   "LR"
+  ],
+  "voxel_um": 25.0,
+  "space": "CCFv3BBP (BrainGlobe ccfv3augmented_mouse_25um)"
+ },
+ "files": {
+  "nissl": {
+   "file": "nissl.u8.gz",
+   "dtype": "uint8",
+   "shape": [
+    566,
+    320,
+    456
+   ],
+   "bytes_gz": 25353314
+  },
+  "ara": {
+   "file": "ara.u16.gz",
+   "dtype": "uint16",
+   "shape": [
+    566,
+    320,
+    456
+   ],
+   "bytes_gz": 3646478
+  },
+  "hgea_full": {
+   "file": "hgea_full.u8.gz",
+   "dtype": "uint8",
+   "shape": [
+    566,
+    320,
+    456
+   ],
+   "bytes_gz": 235503
+  },
+  "hgea_plates": {
+   "file": "hgea_plates.u8.gz",
+   "dtype": "uint8",
+   "shape": [
+    566,
+    320,
+    456
+   ],
+   "bytes_gz": 201690
+  }
+ },
+ "svg": false,
+ "domains": [
+  {
+   "id": 1,
+   "name": "CA1d",
+   "colour": "#e6194b"
+  },
+  {
+   "id": 2,
+   "name": "CA1i",
+   "colour": "#3cb44b"
+  },
+  {
+   "id": 3,
+   "name": "CA1v",
+   "colour": "#4363d8"
+  },
+  {
+   "id": 4,
+   "name": "CA1vv",
+   "colour": "#000075"
+  },
+  {
+   "id": 5,
+   "name": "CA2",
+   "colour": "#f58231"
+  },
+  {
+   "id": 6,
+   "name": "CA3dd",
+   "colour": "#911eb4"
+  },
+  {
+   "id": 7,
+   "name": "CA3v",
+   "colour": "#42d4f4"
+  },
+  {
+   "id": 8,
+   "name": "DGd/CA3d",
+   "colour": "#fabed4"
+  },
+  {
+   "id": 9,
+   "name": "DGi/CA3i",
+   "colour": "#aaffc3"
+  },
+  {
+   "id": 10,
+   "name": "DGv/CA3vv",
+   "colour": "#a9def9"
+  },
+  {
+   "id": 11,
+   "name": "SUB_1",
+   "colour": "#ff0000"
+  },
+  {
+   "id": 12,
+   "name": "SUB_2",
+   "colour": "#0082c8"
+  },
+  {
+   "id": 13,
+   "name": "SUB_3",
+   "colour": "#ffa500"
+  },
+  {
+   "id": 14,
+   "name": "SUB_4",
+   "colour": "#ffe119"
+  }
+ ],
+ "plates": [
+  {
+   "level": 64,
+   "z": 265,
+   "bregma_mm": -0.955,
+   "line_median_um": 10.4,
+   "hpf_median_um": 13.8,
+   "ap_spread_vox": 2
+  },
+  {
+   "level": 65,
+   "z": 269,
+   "bregma_mm": -1.055,
+   "line_median_um": 5.8,
+   "hpf_median_um": 12.4,
+   "ap_spread_vox": 2
+  },
+  {
+   "level": 66,
+   "z": 273,
+   "bregma_mm": -1.155,
+   "line_median_um": 6.6,
+   "hpf_median_um": 2.9,
+   "ap_spread_vox": 3
+  },
+  {
+   "level": 67,
+   "z": 277,
+   "bregma_mm": -1.255,
+   "line_median_um": 7.5,
+   "hpf_median_um": 4.0,
+   "ap_spread_vox": 3
+  },
+  {
+   "level": 68,
+   "z": 281,
+   "bregma_mm": -1.355,
+   "line_median_um": 6.6,
+   "hpf_median_um": 10.3,
+   "ap_spread_vox": 3
+  },
+  {
+   "level": 69,
+   "z": 284,
+   "bregma_mm": -1.455,
+   "line_median_um": 9.1,
+   "hpf_median_um": 14.4,
+   "ap_spread_vox": 3
+  },
+  {
+   "level": 70,
+   "z": 288,
+   "bregma_mm": -1.555,
+   "line_median_um": 6.5,
+   "hpf_median_um": 10.9,
+   "ap_spread_vox": 3
+  },
+  {
+   "level": 71,
+   "z": 293,
+   "bregma_mm": -1.655,
+   "line_median_um": 12.7,
+   "hpf_median_um": 14.9,
+   "ap_spread_vox": 3
+  },
+  {
+   "level": 72,
+   "z": 297,
+   "bregma_mm": -1.755,
+   "line_median_um": 9.2,
+   "hpf_median_um": 12.6,
+   "ap_spread_vox": 3
+  },
+  {
+   "level": 73,
+   "z": 301,
+   "bregma_mm": -1.855,
+   "line_median_um": 12.5,
+   "hpf_median_um": 11.2,
+   "ap_spread_vox": 3
+  },
+  {
+   "level": 74,
+   "z": 304,
+   "bregma_mm": -1.955,
+   "line_median_um": 8.3,
+   "hpf_median_um": 12.3,
+   "ap_spread_vox": 3
+  },
+  {
+   "level": 75,
+   "z": 308,
+   "bregma_mm": -2.055,
+   "line_median_um": 8.3,
+   "hpf_median_um": 8.6,
+   "ap_spread_vox": 4
+  },
+  {
+   "level": 76,
+   "z": 312,
+   "bregma_mm": -2.155,
+   "line_median_um": 8.6,
+   "hpf_median_um": 7.4,
+   "ap_spread_vox": 4
+  },
+  {
+   "level": 77,
+   "z": 316,
+   "bregma_mm": -2.255,
+   "line_median_um": 7.8,
+   "hpf_median_um": 7.3,
+   "ap_spread_vox": 4
+  },
+  {
+   "level": 78,
+   "z": 320,
+   "bregma_mm": -2.355,
+   "line_median_um": 8.9,
+   "hpf_median_um": 7.7,
+   "ap_spread_vox": 4
+  },
+  {
+   "level": 79,
+   "z": 324,
+   "bregma_mm": -2.48,
+   "line_median_um": 5.5,
+   "hpf_median_um": 3.1,
+   "ap_spread_vox": 4
+  },
+  {
+   "level": 80,
+   "z": 327,
+   "bregma_mm": -2.555,
+   "line_median_um": 5.7,
+   "hpf_median_um": 3.8,
+   "ap_spread_vox": 4
+  },
+  {
+   "level": 81,
+   "z": 332,
+   "bregma_mm": -2.78,
+   "line_median_um": 6.0,
+   "hpf_median_um": 5.0,
+   "ap_spread_vox": 4
+  },
+  {
+   "level": 82,
+   "z": 336,
+   "bregma_mm": -2.88,
+   "line_median_um": 4.6,
+   "hpf_median_um": 4.5,
+   "ap_spread_vox": 5
+  },
+  {
+   "level": 83,
+   "z": 339,
+   "bregma_mm": -2.98,
+   "line_median_um": 5.5,
+   "hpf_median_um": 5.7,
+   "ap_spread_vox": 6
+  },
+  {
+   "level": 84,
+   "z": 343,
+   "bregma_mm": -3.08,
+   "line_median_um": 9.9,
+   "hpf_median_um": 11.0,
+   "ap_spread_vox": 6
+  },
+  {
+   "level": 85,
+   "z": 347,
+   "bregma_mm": -3.18,
+   "line_median_um": 10.4,
+   "hpf_median_um": 10.4,
+   "ap_spread_vox": 6
+  },
+  {
+   "level": 86,
+   "z": 352,
+   "bregma_mm": -3.28,
+   "line_median_um": 5.7,
+   "hpf_median_um": 5.4,
+   "ap_spread_vox": 7
+  },
+  {
+   "level": 87,
+   "z": 356,
+   "bregma_mm": -3.38,
+   "line_median_um": 7.1,
+   "hpf_median_um": 5.6,
+   "ap_spread_vox": 6
+  },
+  {
+   "level": 88,
+   "z": 359,
+   "bregma_mm": -3.455,
+   "line_median_um": 7.1,
+   "hpf_median_um": 7.3,
+   "ap_spread_vox": 7
+  },
+  {
+   "level": 89,
+   "z": 365,
+   "bregma_mm": -3.58,
+   "line_median_um": 5.7,
+   "hpf_median_um": 4.8,
+   "ap_spread_vox": 7
+  },
+  {
+   "level": 90,
+   "z": 369,
+   "bregma_mm": -3.68,
+   "line_median_um": 9.6,
+   "hpf_median_um": 8.9,
+   "ap_spread_vox": 7
+  },
+  {
+   "level": 91,
+   "z": 373,
+   "bregma_mm": -3.78,
+   "line_median_um": 9.6,
+   "hpf_median_um": 10.3,
+   "ap_spread_vox": 7
+  },
+  {
+   "level": 92,
+   "z": 376,
+   "bregma_mm": -3.88,
+   "line_median_um": 11.9,
+   "hpf_median_um": 11.5,
+   "ap_spread_vox": 7
+  },
+  {
+   "level": 93,
+   "z": 377,
+   "bregma_mm": -3.98,
+   "line_median_um": 10.2,
+   "hpf_median_um": 10.0,
+   "ap_spread_vox": 6
+  },
+  {
+   "level": 94,
+   "z": 381,
+   "bregma_mm": -4.08,
+   "line_median_um": 12.3,
+   "hpf_median_um": 16.3,
+   "ap_spread_vox": 8
+  },
+  {
+   "level": 95,
+   "z": 384,
+   "bregma_mm": -4.155,
+   "line_median_um": 16.3,
+   "hpf_median_um": 18.3,
+   "ap_spread_vox": 7
+  },
+  {
+   "level": 96,
+   "z": 390,
+   "bregma_mm": -4.28,
+   "line_median_um": 9.7,
+   "hpf_median_um": 8.2,
+   "ap_spread_vox": 2
+  }
+ ],
+ "accuracy_rows": [
+  [
+   "placement in the 3D ARA, ARA lines (median)",
+   "8.3 \u00b5m"
+  ],
+  [
+   "3D ARA \u2192 CCFv3BBP, Nissl correlation (hippocampus)",
+   "0.956"
+  ],
+  [
+   "HGEA outside the CCFv3BBP hippocampal formation",
+   "7.8%"
+  ],
+  [
+   "Blue Brain ISH: marker AUC, median (this \u00b7 v4)",
+   "0.809 \u00b7 0.786"
+  ],
+  [
+   "Blue Brain ISH: gene border offset, median (this \u00b7 v4)",
+   "112 \u00b7 138 \u00b5m"
+  ],
+  [
+   "overlap with the earlier CCF build (v4), whole HGEA",
+   "Dice 0.82"
+  ]
+ ],
+ "accuracy_note": "ISH: Blue Brain gene volumes (Carey et al.) against Bienkowski et al.'s Table 2, the same test for both builds; differences are not significant (gene borders are located to about \u00b1100 \u00b5m).",
+ "sources": [
+  "Bienkowski M.S. et al. Integration of gene expression and brain-wide connectivity reveals the multiscale organization of mouse hippocampal networks. Nat. Neurosci. 21, 1628-1643 (2018): HGEA coronal plates.",
+  "Allen Institute for Brain Science, Allen Reference Atlas (2008) and its 3D reconstruction (CCFv2, 2011).",
+  "Piluso S. et al. An extended and improved CCFv3 annotation and Nissl atlas of the entire mouse brain. Imaging Neurosci. (2025): CCFv3BBP and the realigned ARA Nissl."
+ ]
+}
