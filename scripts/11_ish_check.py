@@ -1,13 +1,11 @@
-"""Step 11: independent-data check in CCFv3BBP — Blue Brain ISH (Carey et al.) vs the HGEA annotation,
-for the ARA-route reference (step 10) and v4, with exactly the same test for both.
+"""Step 11: independent-data check in CCFv3BBP — Blue Brain ISH (Carey et al.) vs the HGEA annotation, for the
+reference in CCFv3BBP (step 10) and, optionally, a comparison atlas (config.COMPARE_ATLAS), with the same test.
 
-Test only: nothing here feeds either build. The gene-check functions and EBRAINS reader come from the HGEA-3D
-project (hgea_ara3d.validation, unchanged), so the test matches the one v4 went through.
-Caveat (as for v4): the Blue Brain volumes are reconstructed from the Allen ISH that Bienkowski et al.
-used, so this tests placement, not the HGEA biology.
+Test only: nothing here feeds the build. Caveat: the Blue Brain volumes are reconstructed from the Allen ISH that
+Bienkowski et al. used, so this tests placement, not the HGEA biology.
 
 Common ground for both atlases:
-    vocabulary  the plates' 14 domains (v4's 19 leaves merged; Table 2 columns merged the same way:
+    vocabulary  the plates' 14 domains (a 19-leaf comparison atlas and the Table 2 columns merged the same way:
                 a gene counts as a marker of a merged domain if marked in any of its columns), sides pooled
     voxels      the union of both atlases' HGEA voxels; every gene sampled there
     leaf test   per domain: AUC of its annotated markers vs annotated-absent genes, by enrichment over its
@@ -25,7 +23,7 @@ import _path  # noqa: F401
 import numpy as np
 import pandas as pd
 
-from hgea_ara3d.config import DOMAINS, HGEA_GENE_VOLUMES, HGEA_TABLE2, V4_LEAVES, WORK
+from hgea_ara3d.config import DOMAINS, HGEA_GENE_VOLUMES, HGEA_TABLE2, COMPARE_ATLAS, WORK
 from hgea_ara3d.validation import ebrains
 from hgea_ara3d.validation.genecheck import PSEUDO, auc, load_codebook, signed_distance_pair, steepest_transition
 
@@ -34,7 +32,7 @@ CACHE = WORK / "ish_check" / "gene_matrix_cache.npz"     # optional: earlier sam
 BINS = np.arange(-500, 501, 25.0)
 N_BOOT = 100
 MERGE = {"DGd/CA3d": ["DGd", "CA3d", "DGpod"], "DGi/CA3i": ["DGi", "CA3i"], "DGv/CA3vv": ["DGv", "DGpov", "CA3vv"]}
-V4_TO_PLATE = {leaf: d for d, leaves in MERGE.items() for leaf in leaves}
+LEAF_TO_PLATE = {leaf: d for d, leaves in MERGE.items() for leaf in leaves}
 GROUPS = {"CA1": ["CA1d", "CA1i", "CA1v", "CA1vv"], "SUB": ["SUB_1", "SUB_2", "SUB_3", "SUB_4"],
           "band": ["DGd/CA3d", "DGi/CA3i", "DGv/CA3vv", "CA3dd", "CA3v"]}
 _vox = None
@@ -62,19 +60,19 @@ def peers_of(d: str) -> list[str]:
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     ours = np.load(WORK / "hgea_ccfv3bbp.npz")["labels"].astype(np.int16) % 100
-    atlases = {"ARA route (reference v1)": ours}
-    if V4_LEAVES.exists():
-        z = np.load(V4_LEAVES, allow_pickle=True)
-        v4 = np.zeros(ours.shape, np.int16)
+    atlases = {"reference": ours}
+    if COMPARE_ATLAS.exists():
+        z = np.load(COMPARE_ATLAS, allow_pickle=True)
+        other = np.zeros(ours.shape, np.int16)
         for k, leaf in enumerate(z["leaves"], start=1):
-            v4[z["leaf"] == k] = DOMAINS.index(V4_TO_PLATE.get(leaf, leaf)) + 1
-        atlases["v4"] = v4
+            other[z["leaf"] == k] = DOMAINS.index(LEAF_TO_PLATE.get(leaf, leaf)) + 1
+        atlases["comparison"] = other
 
     cb19 = load_codebook(HGEA_TABLE2, HGEA_GENE_VOLUMES)
     cb = pd.DataFrame({d: cb19[MERGE[d]].any(axis=1) if d in MERGE else cb19[d] for d in DOMAINS})
     genes = list(cb.index)
 
-    # gene matrix over the union of both atlases' voxels: cached v4 rows + fresh rows for the rest
+    # gene matrix over the union of the atlases' voxels: cached rows where available, fresh samples for the rest
     U = np.any([v > 0 for v in atlases.values()], axis=0)
     vox = np.argwhere(U)
     lin = np.ravel_multi_index(tuple(vox.T), U.shape)

@@ -1,4 +1,4 @@
-"""Step 9 (plan B): the 3D ARA (CCFv2 2011) -> CCFv3BBP transform, and its accuracy in the hippocampus.
+"""Step 9: the 3D ARA (CCFv2 2011) -> CCFv3BBP transform, and its accuracy in the hippocampus.
 
 Target: Blue Brain's realignment of the same ARA Nissl brain into CCFv3BBP, which is
 `single_animal_nissl.tiff` of the BrainGlobe package ccfv3augmented_mouse_25um (identical to Zenodo

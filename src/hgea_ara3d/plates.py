@@ -1,7 +1,5 @@
 """Parse the original HGEA coronal plates (Bienkowski et al. 2018) into labelled geometry.
 
-(From the HGEA-3D project, hgea.hgea_plates.svg, unchanged apart from this note.)
-
 Each `HGEA-Coronal-0NNBW.svg` is an Allen Reference Atlas (ARA) coronal plate exported from
 Illustrator with the HGEA domains drawn on top:
 

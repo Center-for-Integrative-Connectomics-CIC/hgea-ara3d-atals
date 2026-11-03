@@ -25,7 +25,8 @@ The web page has two editions:
 | Sagittal HGEA plates (a different brain) placed in the 3D ARA: ARA line distance | 15.6 µm |
 | Domain agreement with the sagittal drawings | 0.56 (the coronal and sagittal drawings agree 0.54 with each other) |
 | 3D ARA → CCFv3BBP: Nissl correlation in the hippocampus | 0.956 |
-| Blue Brain ISH check in CCFv3BBP: median marker AUC | 0.809 (earlier CCF build: 0.786) |
+| Blue Brain ISH check in CCFv3BBP: median marker AUC (0.5 = chance) | 0.809 |
+| Blue Brain ISH check: gene-defined border vs atlas border, median | 112 µm |
 
 ## Build
 
@@ -35,7 +36,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 # inputs not downloaded by the scripts (see DATA_LICENSES.md):
 #   data_raw/hgea_svg/            HGEA coronal SVG plates
 #   data_raw/hgea_sagittal_ai/    HGEA sagittal Illustrator plates
-#   data_raw/ccfv3bbp/            BrainGlobe ccfv3augmented_mouse_25um (or ~/.brainglobe)
+#   data_raw/ccfv3bbp/            BrainGlobe ccfv3augmented_mouse_25um (or BrainGlobe's default atlas cache)
 #   data_raw/hgea_tables/         Bienkowski et al. Supplementary Table 2 + gene -> volume table (ISH check)
 .venv/bin/python scripts/01_parse_plates.py
 .venv/bin/python scripts/02_place_plates.py      # coronal plates on their 3D ARA slices

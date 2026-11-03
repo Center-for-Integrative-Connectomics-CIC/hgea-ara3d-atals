@@ -1,4 +1,4 @@
-"""Step 5 (plan step 2): place the 20 sagittal HGEA plates in the coronal 3D ARA, and use them as a test.
+"""Step 5: place the 20 sagittal HGEA plates in the coronal 3D ARA, and use them as a test.
 
 The sagittal plates are drawn on a different ARA brain, so here they are a test of the coronal build,
 not a build input. See hgea_ara3d.sagittal for the placement model.

@@ -70,15 +70,14 @@ def main() -> None:
     acc = pd.read_csv(WORK / "to_ccfv3bbp" / "accuracy.csv").set_index("stage")
     env = pd.read_csv(WORK / "to_ccfv3bbp" / "envelope.csv").set_index("domain")
     ish = pd.read_csv(WORK / "ish_check" / "summary.csv").set_index("atlas")
-    vs = pd.read_csv(WORK / "to_ccfv3bbp" / "vs_v4.csv").set_index("domain")
-    ref = "ARA route (reference v1)"
+    ref = "reference"
     rows = [
         ["placement in the 3D ARA, ARA lines (median)", f"{ara_meta['accuracy']['placement_line_median_um']} µm"],
         ["3D ARA → CCFv3BBP, Nissl correlation (hippocampus)", f"{acc.loc['affine + SyN', 'nissl_corr_crop']:.3f}"],
         ["HGEA outside the CCFv3BBP hippocampal formation", f"{env.loc['all', 'outside_hpf_frac'] * 100:.1f}%"],
-        ["Blue Brain ISH: marker AUC, median (this · v4)", f"{ish.loc[ref, 'median_auc']:.3f} · {ish.loc['v4', 'median_auc']:.3f}" if "v4" in ish.index else f"{ish.loc[ref, 'median_auc']:.3f}"],
-        ["Blue Brain ISH: gene border offset, median (this · v4)", f"{ish.loc[ref, 'median_abs_offset_um']:.0f} · {ish.loc['v4', 'median_abs_offset_um']:.0f} µm" if "v4" in ish.index else f"{ish.loc[ref, 'median_abs_offset_um']:.0f} µm"],
-        ["overlap with the earlier CCF build (v4), whole HGEA", f"Dice {vs.loc['all HGEA', 'dice']:.2f}"],
+        ["Blue Brain ISH: marker AUC, median (0.5 = chance)", f"{ish.loc[ref, 'median_auc']:.3f}"],
+        ["Blue Brain ISH: domains with marker AUC above 0.7", f"{int(ish.loc[ref, 'domains_auc_over_0_7'])} of {int(ish.loc[ref, 'domains'])}"],
+        ["Blue Brain ISH: gene-defined border vs atlas border, median", f"{ish.loc[ref, 'median_abs_offset_um']:.0f} µm"],
     ]
     files = dict(nissl=write("nissl.u8.gz", nis8), ara=write("ara.u16.gz", index[ann]), hgea_full=write("hgea_full.u8.gz", full),
                  hgea_plates=write("hgea_plates.u8.gz", pw))
@@ -94,8 +93,8 @@ def main() -> None:
         domains=[dict(id=i + 1, name=d, colour=COLOURS[d]) for i, d in enumerate(DOMAINS)],
         plates=[p for p in plates_meta if p["z"] is not None],
         accuracy_rows=rows,
-        accuracy_note=("ISH: Blue Brain gene volumes (Carey et al.) against Bienkowski et al.'s Table 2, the same test for both builds; "
-                       "differences are not significant (gene borders are located to about ±100 µm)."),
+        accuracy_note=("ISH: Blue Brain gene volumes (Carey et al.) against Bienkowski et al.'s Table 2: do a domain's annotated "
+                       "marker genes peak in it, and where do the gene-defined borders lie. The ISH locates borders to about ±100 µm."),
         sources=ara_meta["sources"] + ["Piluso S. et al. An extended and improved CCFv3 annotation and Nissl atlas of the entire mouse brain. "
                                        "Imaging Neurosci. (2025): CCFv3BBP and the realigned ARA Nissl."],
     )

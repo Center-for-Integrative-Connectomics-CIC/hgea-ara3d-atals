@@ -1,4 +1,4 @@
-"""Step 7 (plan step 1c): fill between plates in hippocampal coordinates (s, t, r), and test it.
+"""Step 7: fill between plates in hippocampal coordinates (s, t, r), and test it.
 
 For a voxel between plates:
     field   (CA1 / CA2 / DG-CA3 band / SUB) and HGEA extent: from the Nissl-guided fill (step 3), since field

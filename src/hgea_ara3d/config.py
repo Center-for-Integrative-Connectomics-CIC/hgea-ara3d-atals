@@ -19,10 +19,11 @@ PLATE_SECTIONS = Path(__file__).with_name("plate_sections.csv")   # ARA plate le
 CCFV3BBP_DIR = next((p for p in (RAW / "ccfv3bbp", Path.home() / ".brainglobe" / "ccfv3augmented_mouse_25um_v1.0")
                      if (p / "annotation.tiff").exists()), RAW / "ccfv3bbp")
 # Bienkowski et al. Supplementary Table 2 (gene x domain annotation) and the gene -> Blue Brain volume name table,
-# for the ISH check (step 11); and optionally an earlier CCFv3BBP HGEA build (v4 leaves) to compare with
+# for the ISH check (step 11); and, optionally, another CCFv3BBP HGEA volume to compare with (`leaf` labels + `leaves`
+# names in the HGEA Table 2 vocabulary); steps 10-11 skip the comparison when it is absent
 HGEA_TABLE2 = RAW / "hgea_tables" / "supp_table2_gene_annotation.xlsx"
 HGEA_GENE_VOLUMES = RAW / "hgea_tables" / "hgea_markers_vs_published.csv"
-V4_LEAVES = RAW / "v4" / "hgea_leaves.npz"
+COMPARE_ATLAS = RAW / "compare" / "hgea_leaves.npz"
 
 ALLEN = "https://download.alleninstitute.org/informatics-archive"
 ARA3D_FILES = {

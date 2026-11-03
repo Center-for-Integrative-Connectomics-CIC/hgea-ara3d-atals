@@ -1,4 +1,4 @@
-"""Step 6 (plan step 1a-b): hippocampal coordinates s (long axis), t (transverse), r (depth) in the 3D ARA.
+"""Step 6: hippocampal coordinates s (long axis), t (transverse), r (depth) in the 3D ARA.
 
 See hgea_ara3d.coords. Both hemispheres separately.
 

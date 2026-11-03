@@ -1,4 +1,4 @@
-"""Hippocampal coordinates in the 3D ARA (plan step 1), per hemisphere.
+"""Hippocampal coordinates in the 3D ARA, per hemisphere.
 
 Envelope: the 2011 ARA hippocampal fields (CA1, CA2, CA3, DG, SUB; the 2011 ontology has no ProS, so it
 lies inside SUB), joined with the filled HGEA labels so that domains drawn just outside the ARA fields are

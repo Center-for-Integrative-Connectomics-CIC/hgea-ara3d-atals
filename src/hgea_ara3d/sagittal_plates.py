@@ -1,7 +1,5 @@
 """The original sagittal HGEA plates (Bienkowski et al. 2018) from the authors' Illustrator files.
 
-(From the HGEA-3D project, hgea.hgea_plates.sagittal_ai, unchanged apart from imports.)
-
 Sources: HGEA-Sagittal-0NNBW.ai (PDF-compatible Illustrator CS6) and HGEA_full_sagittal.pdf (all 20
 plates, same drawings). Each page has optional-content layers: "HGEA" (domains), "Stereotaxic
 coordinate" (mm grid, axis labels), "Brain outline, ventricles, and fibers tract" (ARA reference),
@@ -17,7 +15,7 @@ A small PDF content-stream interpreter handles q/Q, cm, colours (rg/g/k/sc/scn),
 paths (m l c v y h re), fills, clips (W/W* + n, intersected with each fill), Form XObjects (Do, with
 /Matrix and /BBox) and marked content (optional-content layers), and records text with positions.
 
-Plate coordinates match hgea_plates.sagittal: x = AP mm from bregma (+ anterior), y = DV mm (as
+Plate coordinates: x = AP mm from bregma (+ anterior), y = DV mm (as
 printed), plus the printed lateral position. Calibrated from the dashed 1-mm grid.
 """
 
@@ -44,7 +42,7 @@ def layer_role(name: str) -> str:
         return "ref"
     return n
 
-# legend: (fill hex, effective opacity) -> class (plate vocabulary of hgea_plates.sagittal.CLASSES)
+# legend: (fill hex, effective opacity) -> class (the plates' domain vocabulary)
 LEGEND_FILLS = {
     ("#EC1C24", 0.5): "DGd/CA3d", ("#00A551", 0.5): "DGi/CA3i", ("#00ADEE", 0.5): "DGv/CA3vv",
     ("#652D90", 0.5): "CA3dd", ("#F6921E", 0.8): "CA2", ("#EC1C24", 0.8): "CA1d", ("#00A551", 0.8): "CA1i",

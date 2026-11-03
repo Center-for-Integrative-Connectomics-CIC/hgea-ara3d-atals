@@ -412,19 +412,19 @@
    "7.8%"
   ],
   [
-   "Blue Brain ISH: marker AUC, median (this \u00b7 v4)",
-   "0.809 \u00b7 0.786"
+   "Blue Brain ISH: marker AUC, median (0.5 = chance)",
+   "0.809"
   ],
   [
-   "Blue Brain ISH: gene border offset, median (this \u00b7 v4)",
-   "112 \u00b7 138 \u00b5m"
+   "Blue Brain ISH: domains with marker AUC above 0.7",
+   "11 of 14"
   ],
   [
-   "overlap with the earlier CCF build (v4), whole HGEA",
-   "Dice 0.82"
+   "Blue Brain ISH: gene-defined border vs atlas border, median",
+   "112 \u00b5m"
   ]
  ],
- "accuracy_note": "ISH: Blue Brain gene volumes (Carey et al.) against Bienkowski et al.'s Table 2, the same test for both builds; differences are not significant (gene borders are located to about \u00b1100 \u00b5m).",
+ "accuracy_note": "ISH: Blue Brain gene volumes (Carey et al.) against Bienkowski et al.'s Table 2: do a domain's annotated marker genes peak in it, and where do the gene-defined borders lie. The ISH locates borders to about \u00b1100 \u00b5m.",
  "sources": [
   "Bienkowski M.S. et al. Integration of gene expression and brain-wide connectivity reveals the multiscale organization of mouse hippocampal networks. Nat. Neurosci. 21, 1628-1643 (2018): HGEA coronal plates.",
   "Allen Institute for Brain Science, Allen Reference Atlas (2008) and its 3D reconstruction (CCFv2, 2011).",
